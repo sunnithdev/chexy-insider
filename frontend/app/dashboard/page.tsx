@@ -21,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TrendingUp, Award, Activity, Calendar, DollarSign } from "lucide-react";
+import { ChatBox } from "@/components/ChatBox";
 
 interface Transaction {
     id: string;
@@ -395,6 +396,9 @@ export default function DashboardPage() {
                     </form>
                 </DialogContent>
             </Dialog>
+
+            {/* AI Chatbox */}
+            <ChatBox />
         </div>
     );
 }
