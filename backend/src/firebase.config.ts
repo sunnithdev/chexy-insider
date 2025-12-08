@@ -1,4 +1,7 @@
 import * as admin from 'firebase-admin';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 if (!admin.apps.length) {
   const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
@@ -13,6 +16,9 @@ if (!admin.apps.length) {
     admin.initializeApp({
       projectId: process.env.FIREBASE_PROJECT_ID,
     });
+  } else {
+    console.error('❌ Firebase configuration missing!');
+    console.error('Please set FIREBASE_SERVICE_ACCOUNT_KEY or FIREBASE_PROJECT_ID in .env file');
   }
 }
 

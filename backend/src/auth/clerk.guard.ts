@@ -4,15 +4,11 @@ import {
   ExecutionContext,
   UnauthorizedException,
 } from '@nestjs/common';
-import { createClerkClient } from '@clerk/clerk-sdk-node';
+import { verifyToken } from '@clerk/backend';
 import type { Request } from 'express';
 
-const clerk = createClerkClient({
-  secretKey: process.env.CLERK_SECRET_KEY,
-});
-
 interface AuthenticatedRequest extends Request {
-  user?: unknown;
+  user?: any;
 }
 
 @Injectable()
@@ -27,10 +23,14 @@ export class ClerkGuard implements CanActivate {
     }
 
     try {
-      const payload = await clerk.verifyToken(token);
+      const payload = await verifyToken(token, {
+        secretKey: process.env.CLERK_SECRET_KEY,
+      });
+
       request.user = payload;
       return true;
-    } catch {
+    } catch (error) {
+      console.error('❌ Token verification failed:', error.message);
       throw new UnauthorizedException('Invalid token');
     }
   }
