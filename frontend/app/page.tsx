@@ -171,11 +171,10 @@ export default function Home() {
                 <Shield className="h-7 w-7 text-orange-600" />
               </div>
               <h3 className="mb-3 text-2xl font-bold text-gray-900">
-                Build your trust score
+                Secure payments
               </h3>
               <p className="text-lg leading-relaxed text-gray-600">
-                Consistent payments improve your trust score, unlocking even better
-                rewards and exclusive member benefits.
+                Safe and secure payment processing with bank-level encryption for all your transactions.
               </p>
             </div>
 
