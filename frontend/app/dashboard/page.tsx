@@ -196,9 +196,17 @@ export default function DashboardPage() {
                                 Manage your payments and rewards
                             </p>
                         </div>
-                        <SignOutButton>
-                            <Button variant="outline">Sign Out</Button>
-                        </SignOutButton>
+                        <div className="flex items-center gap-3">
+                            <Link href="/rewards">
+                                <Button variant="outline" className="gap-2">
+                                    <Award className="h-4 w-4" />
+                                    Rewards
+                                </Button>
+                            </Link>
+                            <SignOutButton>
+                                <Button variant="outline">Sign Out</Button>
+                            </SignOutButton>
+                        </div>
                     </div>
                 </div>
             </div>
